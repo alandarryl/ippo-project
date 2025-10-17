@@ -42,7 +42,8 @@ function tirerTechnique(combattant){
 
 // function pour l'attaque et calcul de degat
 function attaque(attaquant, defenseur){
-    let degatEnvoyer = attaquant.caractéristiques.strength;
+    let technique = tirerTechnique(attaquant);
+    let degatEnvoyer = technique.power;
     defenseur.caractéristiques.stamina -= degatEnvoyer;
     let coupCritique = Math.random() < 10/100
 
@@ -55,7 +56,7 @@ function attaque(attaquant, defenseur){
         defenseur.caractéristiques.stamina = 0
     }
 
-    console.log(`${attaquant.name} attaque ! ${defenseur.name} perd ${degatEnvoyer} de stamina.`);
+    console.log(`${attaquant.name} utilise ${technique.name} ! ${defenseur.name} perd ${degatEnvoyer} de stamina.`);
     console.log(`${defenseur.name} a maintenant ${defenseur.caractéristiques.stamina} stamina.`);
 
 
